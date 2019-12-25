@@ -1,6 +1,7 @@
 package com.framework.pay.wechat.template;
 
 import com.alibaba.fastjson.JSON;
+import com.framework.pay.utils.ObjectUtil;
 import com.framework.pay.wechat.config.WeChatPrePayParamsConfig;
 import com.framework.pay.wechat.config.WeChatUrlConfig;
 import com.framework.pay.wechat.pojo.PrepayVo;
@@ -69,8 +70,9 @@ public class WeChatJsapiPayService extends AbstractWechatPrepay {
      * @return String
      */
 
-    public PrepayVo prePay(String ipAddress, int orderFee, String orderNo, Long customerId, String openId){
+    public PrepayVo prePay(String ipAddress, int orderFee, String orderNo, Long customerId, String openId, WeChatPrePayParamsConfig prePayParams){
         log.info("jsapiPrePay  begin......");
+        this.weChatPrePayParamsConfig = ObjectUtil.isNotEmpty(prePayParams) ? prePayParams : weChatPrePayParamsConfig;
 
         // 1.组装预支付参数
         log.debug("jsapiPrePay  running......[1.Generate Params]");

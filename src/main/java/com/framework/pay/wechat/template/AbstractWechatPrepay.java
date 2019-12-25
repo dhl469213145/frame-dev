@@ -5,6 +5,7 @@ import com.framework.pay.utils.ObjectUtil;
 import com.framework.pay.utils.XNode;
 import com.framework.pay.utils.XPathParser;
 import com.framework.pay.wechat.config.WeChatConfig;
+import com.framework.pay.wechat.config.WeChatPrePayParamsConfig;
 import com.framework.pay.wechat.config.WeChatUrlConfig;
 import com.framework.pay.wechat.pojo.PrepayVo;
 import com.mysql.jdbc.StringUtils;
@@ -33,7 +34,7 @@ public abstract class AbstractWechatPrepay {
     private final static String ENCODING = "UTF-8";
 
 
-    abstract PrepayVo prePay(String ipAddress, int orderFee, String orderNo, Long customerId, String openId);
+    public abstract PrepayVo prePay(String ipAddress, int orderFee, String orderNo, Long customerId, String openId, WeChatPrePayParamsConfig weChatPrePayParamsConfig);
 
     /**
      * 获取支付跳转地址

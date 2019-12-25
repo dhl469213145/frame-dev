@@ -1,4 +1,5 @@
 package com.framework.pay.wechat.template;
+import com.framework.pay.utils.ObjectUtil;
 import com.framework.pay.wechat.config.WeChatPrePayParamsConfig;
 import com.framework.pay.wechat.pojo.PrepayVo;
 import com.framework.pay.wechat.utils.WeChatPayUtils;
@@ -28,8 +29,9 @@ public class WeChatH5PayService extends AbstractWechatPrepay {
      * @return String
      */
 
-    public PrepayVo prePay(String ipAddress, int orderFee, String orderNo, Long customerId, String redirectUrl){
+    public PrepayVo prePay(String ipAddress, int orderFee, String orderNo, Long customerId, String redirectUrl, WeChatPrePayParamsConfig prePayParams){
         log.info("generateAndSendH5PrePay  begin......");
+        this.weChatPrePayParamsConfig = ObjectUtil.isNotEmpty(prePayParams) ? prePayParams : weChatPrePayParamsConfig;
 
         // 1.组装预支付参数
         log.debug("generateAndSendH5PrePay  running......[1.Generate Params]");
