@@ -2,10 +2,10 @@ package com.framework.pay.wechat.agent;
 
 import com.alibaba.fastjson.JSONObject;
 import com.framework.pay.exception.BizException;
-import com.framework.pay.pojo.PayCallbackDTO;
+import com.framework.pay.wechat.pojo.PayCallbackDTO;
 import org.apache.commons.lang.StringUtils;
 
-public class PayCallbackAgent {
+public class WechatPayAgent {
 
 
     public void init(String params) {

@@ -1,30 +1,30 @@
-/*
-package com.framework.pay.service;
+package com.framework.pay.wechat.template;
 
-import com.framework.pay.config.WeChatConfig;
-import com.framework.pay.config.WeChatUrlConfig;
-import com.framework.pay.pojo.PrepayVo;
-import com.framework.pay.utils.WeChatPayUtils;
+import com.framework.pay.pojo.WeChatResultCode;
+import com.framework.pay.utils.ObjectUtil;
 import com.framework.pay.utils.XNode;
 import com.framework.pay.utils.XPathParser;
-import com.framework.pay.utils.XPathWrapper;
+import com.framework.pay.wechat.config.WeChatConfig;
+import com.framework.pay.wechat.config.WeChatUrlConfig;
+import com.framework.pay.wechat.pojo.PrepayVo;
 import com.mysql.jdbc.StringUtils;
-import com.netflix.client.http.HttpResponse;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import sun.net.www.http.HttpClient;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URLEncoder;
-import java.util.List;
 import java.util.Objects;
-import java.util.SortedMap;
-import java.util.TreeMap;
 
 @Slf4j
-public abstract class AbstractWechatPayService {
+public abstract class AbstractWechatPrepay {
     @Autowired
     private WeChatUrlConfig weChatUrlConfig;
     @Autowired
@@ -35,50 +35,15 @@ public abstract class AbstractWechatPayService {
 
     abstract PrepayVo prePay(String ipAddress, int orderFee, String orderNo, Long customerId, String openId);
 
-    public String payCallback(String params) {
-        log.info("支付回调开始.....");
-        // 1,将微信回调的参数，由xml转为list，进行结果校验
-        XPathParser xpath = new XPathParser(params);
-        XPathWrapper wrap = new XPathWrapper(xpath);
-        String returnCode = wrap.get("return_code");
-        String resultCode = wrap.get("result_code");
-        if(Objects.equals(returnCode,"FAIL")){
-            log.info("支付订单失败，支付回调信息为{}", params);
-            return WeChatPayUtils.fail("call back return_code is fail");
-        }
-
-        // 将返回结果由xml转成list
-        List<XNode> nodes = xpath.evalNodes("//xml/*");
-        SortedMap<Object, Object> parameters = new TreeMap();
-        for (XNode node : nodes) {
-            parameters.put(node.name(), node.body());
-        }
-        String callbackSign = WeChatPayUtils.generateSign(weChatConfig.getKey(), parameters);
-        boolean isSameCallbackSign = Objects.equals(wrap.get("sign"), callbackSign);
-        boolean isPassVerify = (!StringUtils.isNullOrEmpty(resultCode) && "SUCCESS".equalsIgnoreCase(resultCode) && isSameCallbackSign);
-
-        if(!isPassVerify) {
-            log.error("红盟卡支付订单失败 ,回调验签错误:{}", params);
-            return WeChatPayUtils.fail("回调验签错误");
-        }
-
-        AbstractPayCallbackService abstractPayCallbackService = new WeChatPayCallbackService();
-        abstractPayCallbackService.afterCallbackExcuter(wrap.get("out_trade_no"), wrap.get("cash_fee"), wrap.get("transaction_id"), wrap.get("attach"));
-
-        return WeChatPayUtils.success();
-    }
-
-    */
-/**
+    /**
      * 获取支付跳转地址
      *
      * @param requestXml
      * @param redirectUrl
      * @return  PrepayVo
-     *//*
+     */
 
-    */
-/*public PrepayVo callUnified(final String requestXml, final String redirectUrl) {
+    public PrepayVo callUnified(final String requestXml, final String redirectUrl) {
         log.info("CallUnified method begin......");
         PrepayVo prepayVo = new PrepayVo();
         InputStream in = null;
@@ -158,7 +123,6 @@ public abstract class AbstractWechatPayService {
         }
         log.debug("CallUnified method end...... {}" + prepayVo.toString());
         return prepayVo;
-    }*//*
+    }
 
 }
-*/

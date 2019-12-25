@@ -7,8 +7,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Slf4j
-public abstract class AbstractPayCallback {
+public abstract class AbstractPrePay {
     protected Logger logger = LoggerFactory.getLogger(getClass());
-    @Autowired
-    public WeChatConfig weChatConfig;
 }

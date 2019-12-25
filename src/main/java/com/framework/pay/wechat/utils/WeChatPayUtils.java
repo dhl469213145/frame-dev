@@ -4,9 +4,11 @@
  * https://www.sqqmall.com
  */
 
-package com.framework.pay.utils;
+package com.framework.pay.wechat.utils;
 
-import com.framework.pay.config.WeChatPrePayParamsConfig;
+import com.framework.pay.wechat.config.WeChatPrePayParamsConfig;
+import com.framework.pay.utils.DateUtils;
+import com.framework.pay.utils.ObjectUtil;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -118,7 +120,7 @@ public class WeChatPayUtils {
 
 
     public static String success() {
-        StringBuffer result = new StringBuffer();
+        StringBuilder result = new StringBuilder();
         result.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
         result.append("<xml><return_code><![CDATA[SUCCESS]]></return_code>");
         result.append("<return_msg><![CDATA[OK]]></return_msg>");
@@ -127,7 +129,7 @@ public class WeChatPayUtils {
     }
 
     public static String fail(String errorMsg) {
-        StringBuffer result = new StringBuffer();
+        StringBuilder result = new StringBuilder();
         result.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
         result.append("<xml><return_code><![CDATA[FAIL]]></return_code>");
         result.append(String.format("<return_msg><![CDATA[%s]]></return_msg>", errorMsg));

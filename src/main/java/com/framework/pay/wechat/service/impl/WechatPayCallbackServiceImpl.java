@@ -1,29 +1,16 @@
-/*
-package com.framework.pay.service;
+package com.framework.pay.wechat.service.impl;
 
-import com.sqqmall.common.utils.Constant;
-import com.sqqmall.modules.league.entity.OrdersEntity;
-import com.sqqmall.modules.league.entity.PayEntity;
-import com.sqqmall.modules.league.service.OrdersService;
-import com.sqqmall.modules.league.service.PayService;
-import com.sqqmall.modules.league.utils.WxPayUtils;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 
-import java.math.BigDecimal;
-import java.util.Date;
-import java.util.Objects;
+import com.framework.pay.wechat.pojo.PayCallbackDTO;
+import com.framework.pay.wechat.service.IWechatPayCallbackService;
 
-@Slf4j
-public class WeChatPayCallbackService extends AbstractPayCallbackService{
-    @Autowired
-    private OrdersService ordersService;
-    @Autowired
-    private PayService payService;
+public class WechatPayCallbackServiceImpl implements IWechatPayCallbackService {
 
     @Override
-    public String afterCallbackExcuter(String orderNo, String cashFee, String transactionId, String cutomerId) {
-        OrdersEntity orderEntity = ordersService.getByOrderNo(orderNo);
+    public Boolean doCallbackService(PayCallbackDTO payCallbackDTO) {
+        //TODO
+
+       /* OrdersEntity orderEntity = ordersService.getByOrderNo(orderNo);
         if (Objects.isNull(orderEntity)) {
             log.info("支付订单失败，订单未创建{}", orderNo);
             return WxPayUtils.fail("order is uncreated");
@@ -63,7 +50,7 @@ public class WeChatPayCallbackService extends AbstractPayCallbackService{
         } else {
             log.info("支付订单失败 订单金额与实际支付金额不一致:{},{},{}", orderNo, orderEntity.getPayment(), fee);
             return WxPayUtils.fail("payed money is not eq order sign payment");
-        }
+        }*/
+        return null;
     }
 }
-*/

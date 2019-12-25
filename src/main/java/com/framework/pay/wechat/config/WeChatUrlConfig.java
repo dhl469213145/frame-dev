@@ -1,4 +1,4 @@
-package com.framework.pay.config;
+package com.framework.pay.wechat.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

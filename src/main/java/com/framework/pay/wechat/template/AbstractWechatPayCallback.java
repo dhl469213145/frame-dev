@@ -1,7 +1,7 @@
-package com.framework.pay.wechat.agent;
+package com.framework.pay.wechat.template;
 
 import com.framework.pay.common.AbstractPayCallback;
-import com.framework.pay.utils.WeChatPayUtils;
+import com.framework.pay.wechat.utils.WeChatPayUtils;
 import com.framework.pay.utils.XNode;
 import com.framework.pay.utils.XPathParser;
 import com.framework.pay.utils.XPathWrapper;
@@ -78,16 +78,16 @@ public abstract class AbstractWechatPayCallback extends AbstractPayCallback {
     }
 
     // 模板模式，用户自己去实现相关回调业务
-    public abstract Boolean doCallbackService(String orderNo, String cashFee, String transactionId, String cutomerId, String returnUrl, String excuterClassName);
+    public abstract PayCallbackVO doCallbackService(String params);
 
     // 封装返回结果
-    public String generateResult(){
-        StringBuilder result = new StringBuilder();
-        result.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
-        result.append("<xml><return_code><![CDATA[SUCCESS]]></return_code>");
-        result.append("<return_msg><![CDATA[OK]]></return_msg>");
-        result.append("</xml>");
-        return result.toString();
+    public String generateResult(PayCallbackVO payCallbackVO){
+        if(payCallbackVO.getResult() == true) {
+            return WeChatPayUtils.success();
+        } else {
+            return WeChatPayUtils.fail(payCallbackVO.getResultMsg());
+        }
+
     }
 
     /**

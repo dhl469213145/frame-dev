@@ -1,5 +1,6 @@
-package com.framework.pay.pojo;
+package com.framework.pay.wechat.pojo;
 
+import com.framework.pay.pojo.WeChatResultCode;
 import lombok.Data;
 
 /**

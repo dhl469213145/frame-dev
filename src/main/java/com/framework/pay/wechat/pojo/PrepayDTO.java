@@ -1,4 +1,4 @@
-package com.framework.pay.pojo;
+package com.framework.pay.wechat.pojo;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

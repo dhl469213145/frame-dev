@@ -1,35 +1,32 @@
-/*
-package com.framework.pay.service;
-
-import com.sqqmall.modules.pay.config.WeChatPrePayParamsConfig;
-import com.sqqmall.modules.pay.pojo.PrepayVo;
-import com.sqqmall.modules.pay.utils.WeChatPayUtils;
+package com.framework.pay.wechat.template;
+import com.framework.pay.wechat.config.WeChatPrePayParamsConfig;
+import com.framework.pay.wechat.pojo.PrepayVo;
+import com.framework.pay.wechat.utils.WeChatPayUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.SortedMap;
 
-*/
+
 /**
  *
  *
  * @author dinghl
  * @date 2019-12-13 16:06:05
- *//*
+ */
 
 @Slf4j
 @Service("weChatH5PayService")
-public class WeChatH5PayService extends AbstractWechatPayService {
+public class WeChatH5PayService extends AbstractWechatPrepay {
     @Autowired
     private WeChatPrePayParamsConfig weChatPrePayParamsConfig;
 
-    */
-/**
+    /**
      * 生成并发送微信支付产生预支付信息 h5支付
      *
      * @return String
-     *//*
+     */
 
     public PrepayVo prePay(String ipAddress, int orderFee, String orderNo, Long customerId, String redirectUrl){
         log.info("generateAndSendH5PrePay  begin......");
@@ -55,4 +52,4 @@ public class WeChatH5PayService extends AbstractWechatPayService {
         return prepayVo;
     }
 }
-*/
+

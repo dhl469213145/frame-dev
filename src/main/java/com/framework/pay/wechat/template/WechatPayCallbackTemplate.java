@@ -1,17 +1,20 @@
-package com.framework.pay.wechat.agent;
+package com.framework.pay.wechat.template;
 
 import com.alibaba.fastjson.JSON;
 import com.framework.pay.utils.XPathParser;
 import com.framework.pay.utils.XPathWrapper;
 import com.framework.pay.wechat.pojo.PayCallbackDTO;
 import com.framework.pay.wechat.pojo.PayCallbackVO;
+import com.framework.pay.wechat.service.IWechatPayCallbackService;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public abstract class WechatPayCallbackTemplate extends AbstractWechatPayCallback {
+public class WechatPayCallbackTemplate extends AbstractWechatPayCallback {
     @Autowired
     private IWechatPayCallbackService callbackService;
 
+
     // 模板模式，用户自己去实现相关回调业务
+    @Override
     public PayCallbackVO doCallbackService(String params){
         logger.info("doCallbackService is begin.....");
 
@@ -36,7 +39,7 @@ public abstract class WechatPayCallbackTemplate extends AbstractWechatPayCallbac
 
         // 3、封装回调响应参数
         logger.info("doCallbackService is running.....[3.generate result]");
-        String resultParam = generateResult();
+        String resultParam = generateResult(payCallbackVO);
 
         logger.info("doCallbackService is finish.");
         return new PayCallbackVO(true, "success", resultParam);

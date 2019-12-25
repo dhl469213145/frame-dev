@@ -12,13 +12,16 @@ import java.math.BigDecimal;
 @Data
 @ApiModel(value = "支付回调对象")
 public class PayCallbackDTO {
+    @NotNull
     private String orderNo;
 
+    @NotNull
     private Integer payType;
 
     @JsonSerialize(using = JsonLongSerializer.class)
     private Long customerId;
 
+    @NotNull
     private BigDecimal orderFee;
 
     private Integer liveTime;
