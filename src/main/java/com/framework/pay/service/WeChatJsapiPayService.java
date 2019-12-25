@@ -1,3 +1,4 @@
+/*
 package com.framework.pay.service;
 
 import com.alibaba.fastjson.JSON;
@@ -18,23 +19,26 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.SortedMap;
 
+*/
 /**
  *
  *
  * @author dinghl
  * @date 2019-12-13 16:06:05
- */
+ *//*
+
 @Slf4j
 @Service("weChatJsapiPayService")
 public class WeChatJsapiPayService extends AbstractWechatPayService {
-    @Autowired
-    private WeChatPrePayParamsConfig weChatPrePayParamsConfig;
-    @Autowired
-    private WeChatUrlConfig weChatUrlConfig;
+//    @Autowired
+//    private WeChatPrePayParamsConfig weChatPrePayParamsConfig;
+//    @Autowired
+//    private WeChatUrlConfig weChatUrlConfig;
 
     private final static String ENCODING = "UTF-8";
 
-    public String getAuthorizeUri(String redirectUri) {
+   */
+/* public String getAuthorizeUri(String redirectUri) {
         try {
             redirectUri = URLEncoder.encode(redirectUri, ENCODING);
         } catch (UnsupportedEncodingException e) {
@@ -60,11 +64,15 @@ public class WeChatJsapiPayService extends AbstractWechatPayService {
         }
     }
 
-    /**
+    *//*
+*/
+/**
      * 生成并发送微信支付产生预支付信息 jsapi支付
      *
      * @return String
-     */
+     *//*
+*/
+/*
     public PrepayVo prePay(String ipAddress, int orderFee, String orderNo, Long customerId, String openId){
         log.info("jsapiPrePay  begin......");
 
@@ -89,11 +97,15 @@ public class WeChatJsapiPayService extends AbstractWechatPayService {
         return prepayVo;
     }
 
-    /**
+    *//*
+*/
+/**
      * 生成吊起jsapi支付所需要的参数
      *
      * @return json
-     */
+     *//*
+*/
+/*
     public String generatePayParams(String prepayId){
         log.info("generatePayParams  begin......");
 
@@ -108,6 +120,8 @@ public class WeChatJsapiPayService extends AbstractWechatPayService {
 
         log.debug("generatePayParams  end......");
         return JSON.toJSON(packageParams).toString();
-    }
+    }*//*
+
 
 }
+*/

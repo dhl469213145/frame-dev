@@ -1,3 +1,4 @@
+/*
 package com.framework.pay.controller;
 
 import com.qiniu.util.StringUtils;
@@ -22,10 +23,12 @@ import java.math.MathContext;
 import java.util.Objects;
 
 
+*/
 /**
  * @author dinghl
  * @date 2019-12-13 15:40:05
- */
+ *//*
+
 @RestController
 @RequestMapping("league/jsapipay")
 @Api(value = "微信jsapi支付",description = "jsapipay",tags = {"jsapipay"})
@@ -104,3 +107,4 @@ public class WeChatJsapiPayController extends AbstractController {
         return R.success(paramsJson);
     }
 }
+*/

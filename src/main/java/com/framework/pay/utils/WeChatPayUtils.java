@@ -6,9 +6,7 @@
 
 package com.framework.pay.utils;
 
-import com.sqqmall.common.utils.DateUtils;
-import com.sqqmall.common.utils.ObjectUtil;
-import com.sqqmall.modules.pay.config.WeChatPrePayParamsConfig;
+import com.framework.pay.config.WeChatPrePayParamsConfig;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 

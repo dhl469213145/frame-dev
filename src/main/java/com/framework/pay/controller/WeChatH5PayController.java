@@ -1,3 +1,4 @@
+/*
 package com.framework.pay.controller;
 
 import com.sqqmall.common.utils.IPUtils;
@@ -23,10 +24,12 @@ import java.math.MathContext;
 import java.util.Objects;
 
 
+*/
 /**
  * @author dinghl
  * @date 2019-12-13 15:40:05
- */
+ *//*
+
 @RestController
 @RequestMapping("league/wxh5pay")
 @Api(value = "微信h5支付",description = "wxh5pay",tags = {"wxh5pay"})
@@ -57,11 +60,13 @@ public class WeChatH5PayController extends AbstractController {
         //将订单金额单位元转成分
         int orderFee = orderEntity.getMoney().multiply(new BigDecimal(100), MathContext.UNLIMITED).intValue();
         logger.info("h5 prePay running....[3.Call WX Unified Method]");
-       /* // 微信响应页面
+       */
+/* // 微信响应页面
         String wapUrl = "";
         if(!StringUtils.isNullOrEmpty(prepayDTO.getWapUrl()) && orderEntity.getOrderStatus() == 1) {
             wapUrl = prepayDTO.getWapUrl() + "?orderId=" + orderEntity.getId();
-        }*/
+        }*//*
+
         PrepayVo prepayVo = weChatH5PayService.prePay(IPUtils.getIpAddr(request), orderFee, prepayDTO.getOrderNo(), customerId, prepayDTO.getWapUrl());
         if (Objects.equals(prepayVo.getWeixinResultCode(), WeChatResultCode.FAIL)) {
             logger.error("h5 prePay error....Call WX Unified Method return error:::::::prepayVo={}", prepayVo.toString());
@@ -70,3 +75,4 @@ public class WeChatH5PayController extends AbstractController {
         return R.success(prepayVo.getMwebUrl());
     }
 }
+*/

@@ -1,23 +1,18 @@
+/*
 package com.framework.pay.service;
 
-import com.qiniu.util.StringUtils;
-import com.sqqmall.common.utils.ObjectUtil;
-import com.sqqmall.modules.pay.config.WeChatConfig;
-import com.sqqmall.modules.pay.config.WeChatUrlConfig;
-import com.sqqmall.modules.pay.pojo.PrepayVo;
-import com.sqqmall.modules.pay.pojo.WeChatResultCode;
-import com.sqqmall.modules.pay.utils.WeChatPayUtils;
-import com.sqqmall.modules.pay.utils.XNode;
-import com.sqqmall.modules.pay.utils.XPathParser;
-import com.sqqmall.modules.pay.utils.XPathWrapper;
+import com.framework.pay.config.WeChatConfig;
+import com.framework.pay.config.WeChatUrlConfig;
+import com.framework.pay.pojo.PrepayVo;
+import com.framework.pay.utils.WeChatPayUtils;
+import com.framework.pay.utils.XNode;
+import com.framework.pay.utils.XPathParser;
+import com.framework.pay.utils.XPathWrapper;
+import com.mysql.jdbc.StringUtils;
+import com.netflix.client.http.HttpResponse;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import sun.net.www.http.HttpClient;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -29,7 +24,7 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 
 @Slf4j
-abstract class AbstractWechatPayService {
+public abstract class AbstractWechatPayService {
     @Autowired
     private WeChatUrlConfig weChatUrlConfig;
     @Autowired
@@ -73,14 +68,17 @@ abstract class AbstractWechatPayService {
         return WeChatPayUtils.success();
     }
 
-    /**
+    */
+/**
      * 获取支付跳转地址
      *
      * @param requestXml
      * @param redirectUrl
      * @return  PrepayVo
-     */
-    public PrepayVo callUnified(final String requestXml, final String redirectUrl) {
+     *//*
+
+    */
+/*public PrepayVo callUnified(final String requestXml, final String redirectUrl) {
         log.info("CallUnified method begin......");
         PrepayVo prepayVo = new PrepayVo();
         InputStream in = null;
@@ -160,5 +158,7 @@ abstract class AbstractWechatPayService {
         }
         log.debug("CallUnified method end...... {}" + prepayVo.toString());
         return prepayVo;
-    }
+    }*//*
+
 }
+*/

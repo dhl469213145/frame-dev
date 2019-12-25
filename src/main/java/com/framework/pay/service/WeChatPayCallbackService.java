@@ -1,3 +1,4 @@
+/*
 package com.framework.pay.service;
 
 import com.sqqmall.common.utils.Constant;
@@ -65,3 +66,4 @@ public class WeChatPayCallbackService extends AbstractPayCallbackService{
         }
     }
 }
+*/
