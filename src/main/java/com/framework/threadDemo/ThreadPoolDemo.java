@@ -94,7 +94,7 @@ public class ThreadPoolDemo extends ThreadPoolExecutor{
 
 
         while (true) {
-            System.out.println("getActiveCount:"+executor.getActiveCount());
+            System.out.println("getActiveCount:"+executor.getActiveCount());// = 正在运行的coresize + queuesize
             System.out.println("getQueueSize:"+executor.getQueue().size());
             System.out.println("getCoreSize:"+executor.getCorePoolSize());
             System.out.println("getMaxSize:"+executor.getMaximumPoolSize());
