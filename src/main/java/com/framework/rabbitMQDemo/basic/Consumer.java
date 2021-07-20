@@ -6,7 +6,7 @@ import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.QueueingConsumer;
 
 public class Consumer {
-    private final static String QUEUE_NAME = "q_test_work";
+    private final static String QUEUE_NAME = "q_test_basic";
 
     public static void main(String[] argv) throws Exception {
 

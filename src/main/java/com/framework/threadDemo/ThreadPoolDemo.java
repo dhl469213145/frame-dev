@@ -69,7 +69,7 @@ public class ThreadPoolDemo extends ThreadPoolExecutor{
         // DiscardPolicy        不抛出异常，丢弃任务
         // DiscardOldestPolicy  不抛出异常，丢弃队列最前面的任务，然后重新尝试执行任务（重复此过程）
         // CallerRunsPolicy     调用线程处理该任务
-        executor.setRejectedExecutionHandler(new DiscardOldestPolicy());
+        executor.setRejectedExecutionHandler(new DiscardPolicy());
         executor.setThreadFactory(new ThreadFactory() {
             @Override
             public Thread newThread(Runnable r) {
@@ -97,6 +97,7 @@ public class ThreadPoolDemo extends ThreadPoolExecutor{
             System.out.println("getActiveCount:"+executor.getActiveCount());// = 正在运行的coresize + queuesize
             System.out.println("getQueueSize:"+executor.getQueue().size());
             System.out.println("getCoreSize:"+executor.getCorePoolSize());
+            System.out.println("getPoolSize:"+executor.getPoolSize());
             System.out.println("getMaxSize:"+executor.getMaximumPoolSize());
             System.out.println("=======================================");
             try {

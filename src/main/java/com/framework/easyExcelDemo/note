@@ -1,0 +1,12 @@
+导入依赖
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>easyexcel</artifactId>
+            <version>2.2.6</version>
+        </dependency>
+
+
+
+注意点:        1、导出的文件数据行有限制，最大支持行数 1048576
+               2、导出excel时，Bigdecimal类型可以通过@NumberFormat("#.##")来制定格式
+               3、导入时，可以根据相应的规则制定导入数据的格式，见导入实体类ImportVo
